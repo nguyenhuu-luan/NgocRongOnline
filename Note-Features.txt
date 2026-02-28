@@ -1,3 +1,8 @@
+#Drop item
+- Thêm trang bị rơi tăng dần theo map (ví dụ map 1 2 3 -> rơi random tb vai tho den giap sat,...)
+- Thêm logic random chi so vao toan bo trang bi roi tu mob
+- Them option skh doi voi cac trang bi cao -> cang` cao -> ti le cang` thap'
+- Tim` hieu cach trang bi thien su
 #Event
 #Nhiệm vụ
  - Cập nhật lại
@@ -9,3 +14,4 @@
 
 #Cân bằng 
 #Boss
+

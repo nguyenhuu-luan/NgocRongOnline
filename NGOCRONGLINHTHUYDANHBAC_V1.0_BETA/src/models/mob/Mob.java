@@ -664,7 +664,7 @@ public class Mob {
         }
 
         //Set kich hoat
-        if (((player.isActive() && Util.isTrue(80, 100)) || (Manager.TEST && Util.isTrue(3, 1000)) || Util.isTrue(3, 1000)) && MapService.gI().isMapUpSKH(mapid)) {
+        if (((player.isActive() && Util.isTrue(3, 1000)) || (Manager.TEST && Util.isTrue(3, 1000)) || Util.isTrue(3, 1000)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
 
