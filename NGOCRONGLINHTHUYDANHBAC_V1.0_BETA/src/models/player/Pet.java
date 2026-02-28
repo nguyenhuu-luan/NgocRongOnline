@@ -253,7 +253,7 @@ public class Pet extends Player {
     private byte directAtHome = -1;
 
     /**
-     * TODO: Code nhìn như cc rảnh sẽ fix lại
+     * TODO: Code nhìn như cc rảnh sẽ fix lại hehe
      */
 
     @Override

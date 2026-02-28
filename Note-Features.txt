@@ -1,0 +1,11 @@
+#Event
+#Nhiệm vụ
+ - Cập nhật lại
+#Dungeon
+#Map-Mob
+#Shop
+#Quà làm nhiệm vụ
+    - Cập nhật hệ thông quà tặng nv
+
+#Cân bằng 
+#Boss

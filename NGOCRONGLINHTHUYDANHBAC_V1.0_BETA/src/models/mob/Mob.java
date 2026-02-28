@@ -538,7 +538,7 @@ public class Mob {
             return list;
         }
 
-        if (player.isPl() && Util.isTrue(1, 10000) && this.tempId == 0) {
+        if (player.isPl() && Util.isTrue(1, 10000) && this.tempId == 0) { //skh tokuda :))
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> ops = ItemService.gI().getListOptionItemShop(itTemp);
@@ -556,7 +556,7 @@ public class Mob {
         }
         int mapid = player.zone.map.mapId;
 
-        if (EventManager.CHRISTMAS) {
+        /*if (EventManager.CHRISTMAS) {
             Player pl = player;
             if (pl.isPet) {
                 pl = ((Pet) pl).master;
@@ -569,7 +569,7 @@ public class Mob {
                     list.add(new ItemMap(zone, 649, 1, x, yEnd, player.id));
                 }
             }
-        }
+        } */ //event giang sinh
         if (mapid == 5 || mapid == 13) {
             Player pl = player;
             if (pl.isPet) {
@@ -584,7 +584,7 @@ public class Mob {
                 }
             }
         }
-        if (EventManager.INTERNATIONAL_WOMANS_DAY) {
+       /* if (EventManager.INTERNATIONAL_WOMANS_DAY) {
             Player pl = player;
             if (pl.isPet) {
                 pl = ((Pet) pl).master;
@@ -607,13 +607,15 @@ public class Mob {
                 }
             }
         }
+        */ //event 8/3 + hallowen
 
-        if (player.itemTime.isUseMayDo && (Util.isTrue(15, 100) || (player.isActive() && Util.isTrue(1, 10))) && this.tempId > 57 && this.tempId < 66) {
+        // máy dò -> cskb (id 380 là cskb)
+        if (player.itemTime.isUseMayDo && (Util.isTrue(15, 100) || (player.isActive() && Util.isTrue(1, 10))) && this.tempId > 57 && this.tempId < 66) { //57 -> 66 là id mob ở tương lai
             list.add(new ItemMap(zone, 380, 1, x, yEnd, player.id));
         }
-        if (player.itemTime.isUseMayDo2 && Util.isTrue(15, 100) && this.tempId > 80 && this.tempId < 81) {
+        /*if (player.itemTime.isUseMayDo2 && Util.isTrue(15, 100) && this.tempId > 80 && this.tempId < 81) {
             list.add(new ItemMap(zone, 1110, 1, x, yEnd, player.id));
-        }
+        } */ //cái này đang sai logic -> tạm thời bỏ qua khi nào fix sau
 
         if (player.isPl() && TaskService.gI().getIdTask(player) == ConstTask.TASK_8_1) {
             if (player.gender == 0 && this.tempId == 11 || player.gender == 1 && this.tempId == 12 || player.gender == 2 && this.tempId == 10) {
@@ -630,18 +632,18 @@ public class Mob {
                 list.add(new ItemMap(zone, 2055, 1, x, yEnd, player.id));
             }
         }
-
+        // mảnh hồn bông tai
         if (MapService.gI().isMapUpPorata(mapid)) {
             if (Util.isTrue(70, 100)) {
-                ItemMap it = new ItemMap(zone, 934, Util.nextInt(1, 10), x, yEnd, player.id);
+                ItemMap it = new ItemMap(zone, 934, Util.nextInt(1, 10), x, yEnd, player.id); //mảnh hồn
                 it.options.add(new Item.ItemOption(30, 0));
                 list.add(it);
             } else if (Util.isTrue(150, 200)) {
-                ItemMap it = new ItemMap(zone, 935, Util.nextInt(1, 10), x, yEnd, player.id);
+                ItemMap it = new ItemMap(zone, 935, Util.nextInt(1, 10), x, yEnd, player.id); //đá xanh lam
                 it.options.add(new Item.ItemOption(30, 0));
                 list.add(it);
             } else if (Util.isTrue(8, 10)) {
-                ItemMap it = new ItemMap(zone, 933, 1, x, yEnd, player.id);
+                ItemMap it = new ItemMap(zone, 933, 1, x, yEnd, player.id); // mãnh vỡ
                 it.options.add(new Item.ItemOption(31, Util.nextInt(1, 100)));
                 it.options.add(new Item.ItemOption(30, 0));
                 list.add(it);
@@ -662,34 +664,70 @@ public class Mob {
         }
 
         //Set kich hoat
-        if (((player.isActive() && Util.isTrue(3, 100)) || (Manager.TEST && Util.isTrue(3, 100)) || Util.isTrue(3, 100)) && MapService.gI().isMapUpSKH(mapid)) {
+        if (((player.isActive() && Util.isTrue(80, 100)) || (Manager.TEST && Util.isTrue(3, 1000)) || Util.isTrue(3, 1000)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
-            List<Item.ItemOption> ops = ItemService.gI().getListOptionItemShop(itTemp);
-            if (!ops.isEmpty()) {
-                it.options = ops;
+
+            // --- LOGIC RANDOM CHỈ SỐ GỐC ---
+            List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
+            if (!baseOptions.isEmpty()) {
+                // Tỉ lệ dao động, ví dụ: 20 nghĩa là chỉ số sẽ dao động từ -20% đến +20%
+                final int PERCENT_VARIATION = 30;
+
+                for (Item.ItemOption baseOption : baseOptions) {
+                    int originalParam = baseOption.param;
+
+                    // Tính toán sự thay đổi
+                    double variation = originalParam * (Util.nextInt(-PERCENT_VARIATION, PERCENT_VARIATION) / 100.0);
+                    int newParam = originalParam + (int) Math.round(variation);
+
+                    // Đảm bảo chỉ số không bị âm hoặc bằng 0
+                    if (newParam < 1) {
+                        newParam = 1;
+                    }
+
+                    // Thêm chỉ số đã được random hóa vào vật phẩm
+                    it.options.add(new Item.ItemOption(baseOption.optionTemplate.id, newParam));
+                }
             }
+           /*
+           List<Item.ItemOption> ops = ItemService.gI().getListOptionItemShop(itTemp);
+
+           if (!ops.isEmpty()) {
+                it.options = ops;
+            } */ //logic gán chỉ số gốc = chỉ số item trong shop
 
             int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
             it.options.add(new Item.ItemOption(opsrand[0], 0));
             it.options.add(new Item.ItemOption(opsrand[1], 0));
             it.options.add(new Item.ItemOption(30, 0)); //option ko thể giao dịch
 
-            ItemService.gI().tryAddItemSpecialOption(it);
+            ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
 
             list.add(it);
         }
 
         //Sao pha le
-        if (Util.isTrue(1, 100) || (player.nPoint.isDoSPL && Util.isTrue(5, 100)) || (player.isActive() && Util.isTrue(1, 100))) {
+        if (Util.isTrue(3, 200) || (player.nPoint.isDoSPL && Util.isTrue(5, 100)) || (player.isActive() && Util.isTrue(3, 200))) {
             int rand = Util.nextInt(0, 6);
             ItemMap it = new ItemMap(zone, 441 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(95 + rand, (rand == 3 || rand == 4) ? 3 : 5));
             list.add(it);
         }
+       //Ngọc rồng
+        // Rơi Ngọc Rồng (ID 14 -> 20)
+        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
 
+            // Format gọn nhất (nhưng tỉ lệ sẽ ĐỀU NHAU cho các viên):
+            int rand = Util.nextInt(0, 3);
+            ItemMap it = new ItemMap(zone, 20 - rand, 1, x, yEnd, player.id);
+            list.add(it);
+        }
+
+        //TODO: tỉ lệ đang bị cao quá fix thấp all xuống cỡ 1 - 5000 chắc ok hơn
+        //TODO: Trả thg mập 60k tiền xăng ---
         //Da nang cap
-        if (Util.isTrue(1, 100) || (Util.isTrue(5, 100) && MapService.gI().isMapTuongLai(mapid)) || (player.isActive() && Util.isTrue(1, 100))) {
+        if (Util.isTrue(5, 100) || (Util.isTrue(8, 100) && MapService.gI().isMapTuongLai(mapid)) || (player.isActive() && Util.isTrue(5, 100))) {
             int rand = Util.nextInt(0, 4);
             ItemMap it = new ItemMap(zone, 220 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(71 - rand, 0));
@@ -703,7 +741,7 @@ public class Mob {
             if (player.isPet) {
                 player = ((Pet) player).master;
             }
-            if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 5000)) || (player.isAdmin() && Util.isTrue(10, 100))) {
+            if (Util.isTrue(4, 100) || (player.isActive() && Util.isTrue(4, 100)) || (player.isAdmin() && Util.isTrue(4, 100))) {
                 ItemMap it = ItemService.gI().randDoTL(this.zone, 1, x, yEnd, player.id);
 
                 // "Lắp ráp" thêm các chỉ số kích hoạt vào đồ thần linh vừa tạo
@@ -717,28 +755,28 @@ public class Mob {
             }
 
             // tỉ lệ rơi đồ ăn map Cold
-            if ((Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) && InventoryService.gI().fullSetThan(player)) {
+            if ((Util.isTrue(8, 100) || (player.isActive() && Util.isTrue(8, 100))) && InventoryService.gI().fullSetThan(player)) {
                 ItemMap it = new ItemMap(zone, Util.nextInt(663, 667), 1, x, yEnd, player.id);
                 it.options.add(new Item.ItemOption(30, 0));
                 list.add(it);
             }
         }
             // tỉ lệ rơi đồ ăn map TL
-        if (MapService.gI().isMapTuongLai(mapid) && ((Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100)))) && InventoryService.gI().fullSetThan(player)) {
+        if (MapService.gI().isMapTuongLai(mapid) && ((Util.isTrue(2, 100) || (player.isActive() && Util.isTrue(2, 100)))) && InventoryService.gI().fullSetThan(player)) {
             ItemMap it = new ItemMap(zone, Util.nextInt(663, 667), 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(30, 0));
             list.add(it);
         }
         // tỉ lệ rơi thỏi vàng - set thấp thôi
-        if (Util.isTrue(1, 5000) || (player.isActive() && Util.isTrue(1, 5000))) {
+        if (Util.isTrue(1, 1300) || (player.isActive() && Util.isTrue(1, 1300))) {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
 
         // Manh thien su
-        if ((Util.isTrue(1, 100000) || (player.isActive() && Util.isTrue(20, 100))) && MapService.gI().isMapHanhTinhThucVat(mapid) && InventoryService.gI().findItemNTK(player)) {
+        if ((Util.isTrue(1, 3000) || (player.isActive() && Util.isTrue(1, 3000))) && MapService.gI().isMapHanhTinhThucVat(mapid) && InventoryService.gI().findItemNTK(player)) {
             list.add(new ItemMap(zone, Util.nextInt(1066, 1070), 1, x, yEnd, player.id));
         }
-        if (Util.isTrue(1, 5000) || (player.isActive() && Util.isTrue(1, 1000))) {
+        if (Util.isTrue(1, 2000) || (player.isActive() && Util.isTrue(1, 2000))) {
             list.add(new ItemMap(zone, 861, 1, x, yEnd, player.id));
         }
         if (player.nPoint.power >= 80000000000L) {

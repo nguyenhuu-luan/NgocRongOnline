@@ -522,7 +522,7 @@ public class ItemService {
         // --- PHẦN CÓ THỂ TÙY CHỈNH ---
 
         // 1. Tỷ lệ có thể ra trang bị có sao (ví dụ: 5%)
-        final int STAR_OPTION_RATE = 5; // 5 trên 100
+        final int STAR_OPTION_RATE = 30; // 30 trên 100
 
         // 2. ID của option "Sao Pha Lê"
         final int STAR_OPTION_ID = 107;
