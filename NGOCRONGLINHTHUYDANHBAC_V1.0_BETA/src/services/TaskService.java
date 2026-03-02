@@ -1185,22 +1185,22 @@ public class TaskService {
         int avatar = NpcService.gI().getAvatar(npcId);
         NpcService.gI().createTutorial(player, avatar, text);
     }
-
+    //TODO: tăng tnsm lên x3
     private void rewardDoneTask(Player player) {
         switch (player.playerTask.taskMain.id) {
-            case 0:
+            case 0: //thu hoach dau - nv dau tien
                 Service.gI().addSMTN(player, (byte) 0, 500, false);
                 Service.gI().addSMTN(player, (byte) 1, 500, false);
                 break;
-            case 1:
+            case 1: // moc nhan
                 Service.gI().addSMTN(player, (byte) 0, 1000, false);
                 Service.gI().addSMTN(player, (byte) 1, 1000, false);
                 break;
-            case 2:
+            case 2: // tim dui ga` - đéo giống
                 Service.gI().addSMTN(player, (byte) 0, 1200, false);
                 Service.gI().addSMTN(player, (byte) 1, 1200, false);
                 break;
-            case 3:
+            case 3: // sao bang - đéo giống
                 Service.gI().addSMTN(player, (byte) 0, 3000, false);
                 Service.gI().addSMTN(player, (byte) 1, 3000, false);
                 break;

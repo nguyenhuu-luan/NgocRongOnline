@@ -38,8 +38,8 @@ public class PlayerDAO {
         try {
             JSONArray dataArray = new JSONArray();
 
-            dataArray.add(2000000000); //vàng
-            dataArray.add(100000); //ngọc xanh
+            dataArray.add(0); //vàng
+            dataArray.add(0); //ngọc xanh
             dataArray.add(0); //hồng ngọc
             dataArray.add(0); //point
             dataArray.add(0); //event
@@ -131,7 +131,7 @@ public class PlayerDAO {
                     opt.add(73); //id option
                     opt.add(1); //param option
                     item.add(457); //id item
-                    item.add(10); //số lượng
+                    item.add(1); //số lượng
                     options.add(opt.toJSONString());
                     opt.clear();
                 } else {

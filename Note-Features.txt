@@ -10,8 +10,13 @@
 #Map-Mob
 #Shop
 #Quà làm nhiệm vụ
-    - Cập nhật hệ thông quà tặng nv
+    - Cập nhật hệ thông quà tặng nv tìm trong file npc, chỉnh lại trong taskservice
 
-#Cân bằng 
+#Cân bằng
+    -
 #Boss
+    - Chỉnh lại reward boss, cho phép boss có tỉ lệ hiếm rơi hop skh tl tuy chon, nr
 
+
+#datapoint
+0, sm, tn,

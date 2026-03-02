@@ -771,7 +771,16 @@ public class Mob {
         if (Util.isTrue(1, 1300) || (player.isActive() && Util.isTrue(1, 1300))) {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
-
+        //tỉ lệ rơi hồng ngọc
+        if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) {
+            int quantity = Util.nextInt(5, 20); // Random số lượng
+            list.add(new ItemMap(zone,  861, quantity, x, yEnd, player.id));
+        }
+        //tỉ lệ rơi ngọc xanh
+        if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) {
+            int quantity = Util.nextInt(5, 20);
+            list.add(new ItemMap(zone, 77, quantity, x, yEnd, player.id));
+        }
         // Manh thien su
         if ((Util.isTrue(1, 3000) || (player.isActive() && Util.isTrue(1, 3000))) && MapService.gI().isMapHanhTinhThucVat(mapid) && InventoryService.gI().findItemNTK(player)) {
             list.add(new ItemMap(zone, Util.nextInt(1066, 1070), 1, x, yEnd, player.id));
