@@ -51,10 +51,10 @@ public class TrungUyXanhLo extends Boss {
     @Override
     public void reward(Player plKill) {
         if (Util.isTrue(100, 100)) {
-            ItemMap it = new ItemMap(this.zone, Util.nextInt(16, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            ItemMap it = new ItemMap(this.zone, Util.nextInt(15, 20), 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
-            it = new ItemMap(this.zone, 611, Util.nextInt(1, 2), this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            it = new ItemMap(this.zone, 611, Util.nextInt(1, 2), this.location.x, this.zone.map.yPhysicInTop(this.location.x, //bản đồ kho bau
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }

@@ -625,11 +625,11 @@ public class Mob {
         }
 
         if (MapService.gI().isMapPhoBan(mapid) && this.tempId != 22) {
-            if (Util.isTrue(10, 100) || (player.isActive() && Util.isTrue(20, 50))) {
+            if (Util.isTrue(10, 100) || (player.isActive() && Util.isTrue(10, 100))) {
                 list.add(new ItemMap(zone, 2029, 1, x, yEnd, player.id));
             }
-            if (Util.isTrue(50, 100) || (player.isActive() && Util.isTrue(10, 50))) {
-                list.add(new ItemMap(zone, 2055, 1, x, yEnd, player.id));
+            if (Util.isTrue(3, 100) || (player.isActive() && Util.isTrue(3, 100))) {
+                list.add(new ItemMap(zone, 2018, 1, x, yEnd, player.id));
             }
         }
         // mảnh hồn bông tai
@@ -652,11 +652,11 @@ public class Mob {
 
         // Vang roi
         if (Util.isTrue(10, 100) || (Manager.TEST && Util.isTrue(10, 100)) || (player.isActive() && Util.isTrue(10, 100))) {
-            int vang = Util.nextInt(20000, 70000); //20~70k
+            int vang = Util.nextInt(10000, 50000); //20~50k
             //phần này quy định icon vàng
-            if (vang < 25000) {
+            if (vang < 20000) {
                 list.add(new ItemMap(zone, 189, vang, x, yEnd, player.id));
-            } else if (vang < 50000) {
+            } else if (vang < 35000) {
                 list.add(new ItemMap(zone, 188, vang, x, yEnd, player.id));
             } else {
                 list.add(new ItemMap(zone, 190, vang, x, yEnd, player.id));
@@ -664,7 +664,7 @@ public class Mob {
         }
 
         //Set kich hoat
-        if (((player.isActive() && Util.isTrue(3, 1000)) || (Manager.TEST && Util.isTrue(3, 1000)) || Util.isTrue(3, 1000)) && MapService.gI().isMapUpSKH(mapid)) {
+        if (((player.isActive() && Util.isTrue(3, 1500)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(3, 1500)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
 
@@ -708,7 +708,7 @@ public class Mob {
         }
 
         //Sao pha le
-        if (Util.isTrue(3, 200) || (player.nPoint.isDoSPL && Util.isTrue(5, 100)) || (player.isActive() && Util.isTrue(3, 200))) {
+        if (Util.isTrue(1, 500) || (player.nPoint.isDoSPL && Util.isTrue(1, 200)) || (player.isActive() && Util.isTrue(1, 500))) {
             int rand = Util.nextInt(0, 6);
             ItemMap it = new ItemMap(zone, 441 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(95 + rand, (rand == 3 || rand == 4) ? 3 : 5));
@@ -716,7 +716,7 @@ public class Mob {
         }
        //Ngọc rồng
         // Rơi Ngọc Rồng (ID 14 -> 20)
-        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
+        if (Util.isTrue(1, 250) || (player.isActive() && Util.isTrue(1, 250))) {
 
             // Format gọn nhất (nhưng tỉ lệ sẽ ĐỀU NHAU cho các viên):
             int rand = Util.nextInt(0, 3);
@@ -727,7 +727,7 @@ public class Mob {
         //TODO: tỉ lệ đang bị cao quá fix thấp all xuống cỡ 1 - 5000 chắc ok hơn
         //TODO: Trả thg mập 60k tiền xăng ---
         //Da nang cap
-        if (Util.isTrue(5, 100) || (Util.isTrue(8, 100) && MapService.gI().isMapTuongLai(mapid)) || (player.isActive() && Util.isTrue(5, 100))) {
+        if (Util.isTrue(2, 100) || (Util.isTrue(5, 100) && MapService.gI().isMapTuongLai(mapid)) || (player.isActive() && Util.isTrue(2, 100))) {
             int rand = Util.nextInt(0, 4);
             ItemMap it = new ItemMap(zone, 220 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(71 - rand, 0));
@@ -772,13 +772,13 @@ public class Mob {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
         //tỉ lệ rơi hồng ngọc
-        if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) {
-            int quantity = Util.nextInt(5, 20); // Random số lượng
+        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
+            int quantity = Util.nextInt(5, 15); // Random số lượng
             list.add(new ItemMap(zone,  861, quantity, x, yEnd, player.id));
         }
         //tỉ lệ rơi ngọc xanh
-        if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) {
-            int quantity = Util.nextInt(5, 20);
+        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
+            int quantity = Util.nextInt(5, 15);
             list.add(new ItemMap(zone, 77, quantity, x, yEnd, player.id));
         }
         // Manh thien su

@@ -35,11 +35,22 @@ public class LinhCanh extends Npc {
                         "Bang hội phải có ít nhất 5 thành viên mới có thể tham gia");
                 return;
             }
-            if (player.clanMember.getNumDateFromJoinTimeToToday() < 1) { //quy định phải tham gia trên 2 ngày
+            /*if (player.clanMember.getNumDateFromJoinTimeToToday() < 1) { //quy định phải tham gia trên 2 ngày
                 NpcService.gI().createTutorial(player, tempId, this.avartar,
-                        "Gia nhập bang hội trên 2 ngày mới được tham gia");
+                        "Gia nhập bang hội trên 3 tiếng mới được tham gia");
+                return;
+            }*/
+            // QUY ĐỊNH SỐ GIỜ CHỜ TẠI ĐÂY
+            final int REQUIRED_HOURS = 12; // <-- Bạn có thể thay đổi số 12 này thành số giờ bạn muốn
+            // Tính toán thời gian cần thiết bằng mili giây
+            long requiredMillis = (long) REQUIRED_HOURS * 60 * 60 * 1000;
+            if ((System.currentTimeMillis() - player.clanMember.joinTime) < requiredMillis) {
+                NpcService.gI().createTutorial(player, tempId, this.avartar,
+                        String.format("Gia nhập bang hội trên %d tiếng mới được tham gia", REQUIRED_HOURS));
                 return;
             }
+
+
             if (player.clan.doanhTrai != null) {
                 createOtherMenu(player, ConstNpc.MENU_JOIN_DOANH_TRAI,
                         "Bang hội của ngươi đang đánh trại độc nhãn\nThời gian còn lại là "

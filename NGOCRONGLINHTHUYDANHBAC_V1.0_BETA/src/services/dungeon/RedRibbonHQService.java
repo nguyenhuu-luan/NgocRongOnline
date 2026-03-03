@@ -14,6 +14,8 @@ import services.Service;
 import services.map.ChangeMapService;
 import java.util.ArrayList;
 import java.util.List;
+
+import services.map.NpcService;
 import utils.Util;
 
 public class RedRibbonHQService {
@@ -49,9 +51,19 @@ public class RedRibbonHQService {
             Service.gI().sendThongBao(pl, "Vui lòng chờ đến ngày mai");
             return;
         }
-        if (pl.clanMember.getNumDateFromJoinTimeToToday() < 1) {
+        /*if (pl.clanMember.getNumDateFromJoinTimeToToday() < 1) {
+            return;
+        }*/
+
+        // QUY ĐỊNH SỐ GIỜ CHỜ TẠI ĐÂY
+        final int REQUIRED_HOURS = 12; // <-- Bạn có thể thay đổi số 12 này thành số giờ bạn muốn
+        // Tính toán thời gian cần thiết bằng mili giây
+        long requiredMillis = (long) REQUIRED_HOURS * 60 * 60 * 1000;
+        if ((System.currentTimeMillis() - pl.clanMember.joinTime) < requiredMillis) {
             return;
         }
+
+
         if (pl.clan.doanhTrai != null) {
             pl.lastTimeJoinDT = System.currentTimeMillis();
             pl.clan.doanhTrai.updateHPDame();

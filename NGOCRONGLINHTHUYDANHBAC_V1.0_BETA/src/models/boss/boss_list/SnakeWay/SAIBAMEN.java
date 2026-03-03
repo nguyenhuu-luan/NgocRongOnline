@@ -57,7 +57,7 @@ public class SAIBAMEN extends Boss {
     @Override
     public void reward(Player plKill) {
         if (Util.isTrue(100, 100)) {
-            ItemMap it = new ItemMap(this.zone, 19, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
+            ItemMap it = new ItemMap(this.zone, 16, 1, this.location.x, this.zone.map.yPhysicInTop(this.location.x,
                     this.location.y - 24), plKill.id);
             Service.gI().dropItemMap(this.zone, it);
         }
