@@ -104,6 +104,7 @@ import models.map.Zone;
 import server.Maintenance;
 import utils.Functions;
 import utils.Logger;
+import models.boss.boss_list.Black.BlackGoku;
 
 public class BossManager implements Runnable {
 
@@ -216,7 +217,7 @@ public class BossManager implements Runnable {
                     new SO1_NM();
                 case BossID.TIEU_DOI_TRUONG_NM ->
                     new TDT_NM();
-                case BossID.BUJIN ->
+              /*  case BossID.BUJIN ->
                     new BUJIN();
                 case BossID.KOGU ->
                     new KOGU();
@@ -228,6 +229,8 @@ public class BossManager implements Runnable {
                     new BOJACK();
                 case BossID.SUPER_BOJACK ->
                     new SUPER_BOJACK();
+
+               */
                 case BossID.KUKU ->
                     new Kuku();
                 case BossID.MAP_DAU_DINH ->
@@ -330,6 +333,8 @@ public class BossManager implements Runnable {
                     new ThuyTinh();
                 case BossID.LAN_CON ->
                     new LanCon();
+                case BossID.BLACK_GOKU ->
+                    new BlackGoku();
                 default ->
                     null;
             };
