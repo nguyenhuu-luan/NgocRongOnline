@@ -526,12 +526,34 @@ public class MapService {
                 || mapId == 102 || mapId == 103;
     }
 
-    public boolean isMapUpSKH(int mapId) {
+   /* public boolean isMapUpSKH(int mapId) { Map skh origin
         return mapId == 1 || mapId == 2 || mapId == 3
                 || mapId == 8 || mapId == 9 || mapId == 11
                 || mapId == 15 || mapId == 16 || mapId == 17;
+    } */
+
+    public boolean isMapUpSKH(int mapId) { //Cho map upskh thường ít lại bù lại tăng tl drop cho skh cùi
+        return mapId == 1 || mapId == 2 || mapId == 3 //traidat
+                || mapId == 8 || mapId == 9 || mapId == 11 //namec
+                || mapId == 15 || mapId == 16 || mapId == 17; //xayda
     }
 
+    /* Nhóm các map */
+    // Map nappa
+    public boolean isMapNappa(int mapId) {
+        return mapId >= 63 && mapId <= 83;
+    }
+    // Group 1
+    public boolean isMapG1 (int mapId) {
+        return mapId == 4 || mapId == 5 || mapId == 27 || mapId == 28 //traidat
+               || mapId == 12 || mapId == 13 || mapId == 31 || mapId == 32 //namec
+               || mapId == 18 || mapId == 20 || mapId == 35 || mapId == 36; //xayda
+    }
+    public boolean isMapG2 (int mapId) {
+        return mapId == 29 || mapId == 30 || mapId == 6 //traidat
+                || mapId == 33 || mapId == 34 || mapId == 10 //namec
+                || mapId == 37 || mapId == 38 || mapId == 19; //xayda
+    }
     public boolean isMapMabu2H(int mapId) {
         return mapId == 127 || mapId == 128;
     }
@@ -542,10 +564,6 @@ public class MapService {
 
     public boolean isMapLuyenTap(int mapId) {
         return mapId >= 45 && mapId <= 50 && mapId != 47;
-    }
-
-    public boolean isMapNappa(int mapId) {
-        return mapId >= 63 && mapId <= 83;
     }
 
     public boolean isMapEventHalloween(int mapId) {

@@ -226,7 +226,7 @@ public class TimeUtil {
         return (hour >= 14 && hour < 16);
     }
 
-    public static boolean is21H() {
+    public static boolean is21H() { //hàm quy định 21h
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         return (hour >= 21 && hour < 22);

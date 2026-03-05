@@ -447,6 +447,98 @@ public class ItemService {
         return list;
     }
 
+
+    //ham random item map 1
+    public int randTempItemMap1(int gender) {
+        int[][][] items = {{{33, 3, 34}, {41, 4, 42}, {49, 5, 50}}, //ao
+                {{35, 9, 36}, {43, 10, 44}, {51, 11, 52}}, //quan
+                {{24, 37, 38}, {46, 25, 45}, {53, 26, 54}}, //gang
+                {{30, 39, 40}, {47, 31, 48}, {55, 32, 56}}, //giay
+                {{57, 58, 59}, {57, 58, 59}, {57, 58, 59}}}; //rada
+        int type;
+        if (Util.isTrue(25, 100)) {
+            type = 4; // rada
+        } else if (Util.isTrue(25, 100)) {
+            type = 3; // gang
+        } else if (Util.isTrue(25, 100)) {
+            type = 1; // quan
+        } else if (Util.isTrue(25, 100)) {
+            type = 0; // ao
+        } else {
+            type = 2; // giay
+        }
+        return items[type][gender][Util.nextInt(3)];
+
+    }
+
+    //ham random item nappa
+    public int randTempItemNappa(int gender) {
+        int[][][] items = {{{139, 230, 231}, {155, 234, 235}, {171, 238 ,239}}, //ao
+                {{143, 242, 243}, {159, 246, 247}, {175, 250, 251}}, //quan
+                {{147, 254, 255}, {163, 258, 259}, {179, 262, 263}}, //gang
+                {{151, 266, 267}, {167, 270, 271}, {183, 274, 275}}, //giay
+                {{187, 278, 279}, {187, 278, 279}, {187, 278, 279}}}; //rada
+        int type;
+        if (Util.isTrue(25, 100)) {
+            type = 4; // rada
+        } else if (Util.isTrue(25, 100)) {
+            type = 3; // gang
+        } else if (Util.isTrue(25, 100)) {
+            type = 1; // quan
+        } else if (Util.isTrue(25, 100)) {
+            type = 0; // ao
+        } else {
+            type = 2; // giay
+        }
+        return items[type][gender][Util.nextInt(3)];
+
+    }
+    //ham random item map 2
+    public int randTempItemMap2(int gender) {
+        int[][][] items = {{{136, 137, 138}, {152, 153, 154}, {168, 169, 170}}, //ao
+                {{140, 141, 142}, {156, 157, 158}, {172, 173, 174}}, //quan
+                {{144, 145, 146}, {160, 161, 162}, {176, 177, 178}}, //gang
+                {{148, 149, 150}, {164, 165, 166}, {180, 181, 182}}, //giay
+                {{184, 185, 186}, {184, 185, 186}, {184, 185, 186}}}; //rada
+        int type;
+        if (Util.isTrue(25, 100)) {
+            type = 4; // rada
+        } else if (Util.isTrue(25, 100)) {
+            type = 3; // gang
+        } else if (Util.isTrue(25, 100)) {
+            type = 1; // quan
+        } else if (Util.isTrue(25, 100)) {
+            type = 0; // ao
+        } else {
+            type = 2; // giay
+        }
+        return items[type][gender][Util.nextInt(3)];
+
+    }
+    //ham random item tuong lai
+    public int randTempItemTL(int gender) {
+        int[][][] items = {{{232, 233}, {236, 237}, {240, 241}}, //ao
+                {{244, 245}, {248, 249}, {252, 253}}, //quan
+                {{256, 257}, {260, 261}, {264, 265} }, //gang
+                {{268, 269}, {272, 273}, {276, 277}}, //giay
+                {{280, 281}, {280, 281}, {280, 281}}}; //rada
+        int type;
+        if (Util.isTrue(25, 100)) {
+            type = 4; // rada
+        } else if (Util.isTrue(25, 100)) {
+            type = 3; // gang
+        } else if (Util.isTrue(25, 100)) {
+            type = 1; // quan
+        } else if (Util.isTrue(25, 100)) {
+            type = 0; // ao
+        } else {
+            type = 2; // giay
+        }
+        return items[type][gender][Util.nextInt(2)];
+
+    }
+
+    //ham random item kich hoat
     public int randTempItemKichHoat(int gender) {
         int[][][] items = {{{0, 33}, {1, 41}, {2, 49}}, {{6, 35}, {7, 43}, {8, 51}}, {{27, 30}, {28, 47}, {29, 55}}, {{21, 24}, {22, 46}, {23, 53}}, {{12, 57}, {12, 57}, {12, 57}}};
         // a w j g rd
@@ -463,7 +555,7 @@ public class ItemService {
             type = 2; // giay
         }
 
-        return items[type][gender][Util.nextInt(1)];
+        return items[type][gender][Util.nextInt(2)];
     }
 
     public int[] randOptionItemKichHoat(int gender) {

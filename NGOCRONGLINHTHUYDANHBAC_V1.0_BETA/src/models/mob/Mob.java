@@ -662,13 +662,118 @@ public class Mob {
                 list.add(new ItemMap(zone, 190, vang, x, yEnd, player.id));
             }
         }
+        // random item map 1
+        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapG1(mapid)) {
+            short itTemp = (short) ItemService.gI().randTempItemMap1(player.gender);
+            ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
+            List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
+            if (!baseOptions.isEmpty()) {
+                final int PERCENT_VARIATION = 30;
+                for (Item.ItemOption baseOption : baseOptions) {
+                    int originalParam = baseOption.param;
+                    double variation = originalParam * (Util.nextInt(-PERCENT_VARIATION, PERCENT_VARIATION) / 100.0);
+                    int newParam = originalParam + (int) Math.round(variation);
+                    if (newParam < 1) {
+                        newParam = 1;
+                    }
+                    it.options.add(new Item.ItemOption(baseOption.optionTemplate.id, newParam));
+                }
+            }
+            int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
+            it.options.add(new Item.ItemOption(opsrand[0], 0));
+            it.options.add(new Item.ItemOption(opsrand[1], 0));
+            it.options.add(new Item.ItemOption(30, 0)); //option ko thể giao dịch
+
+            ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
+
+            list.add(it);
+        }
+        // random item map 2
+        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapG2(mapid)) {
+            short itTemp = (short) ItemService.gI().randTempItemMap2(player.gender);
+            ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
+            List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
+            if (!baseOptions.isEmpty()) {
+                final int PERCENT_VARIATION = 30;
+                for (Item.ItemOption baseOption : baseOptions) {
+                    int originalParam = baseOption.param;
+                    double variation = originalParam * (Util.nextInt(-PERCENT_VARIATION, PERCENT_VARIATION) / 100.0);
+                    int newParam = originalParam + (int) Math.round(variation);
+                    if (newParam < 1) {
+                        newParam = 1;
+                    }
+                    it.options.add(new Item.ItemOption(baseOption.optionTemplate.id, newParam));
+                }
+            }
+            int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
+            it.options.add(new Item.ItemOption(opsrand[0], 0));
+            it.options.add(new Item.ItemOption(opsrand[1], 0));
+            it.options.add(new Item.ItemOption(30, 0)); //option ko thể giao dịch
+
+            ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
+
+            list.add(it);
+        }
+        // random item map nappa
+        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapNappa(mapid)) {
+            short itTemp = (short) ItemService.gI().randTempItemNappa(player.gender);
+            ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
+            List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
+            if (!baseOptions.isEmpty()) {
+                final int PERCENT_VARIATION = 30;
+                for (Item.ItemOption baseOption : baseOptions) {
+                    int originalParam = baseOption.param;
+                    double variation = originalParam * (Util.nextInt(-PERCENT_VARIATION, PERCENT_VARIATION) / 100.0);
+                    int newParam = originalParam + (int) Math.round(variation);
+                    if (newParam < 1) {
+                        newParam = 1;
+                    }
+                    it.options.add(new Item.ItemOption(baseOption.optionTemplate.id, newParam));
+                }
+            }
+            int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
+            it.options.add(new Item.ItemOption(opsrand[0], 0));
+            it.options.add(new Item.ItemOption(opsrand[1], 0));
+            it.options.add(new Item.ItemOption(30, 0)); //option ko thể giao dịch
+
+            ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
+
+            list.add(it);
+        }
+        // random item map TL
+        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapTuongLai(mapid)) {
+            short itTemp = (short) ItemService.gI().randTempItemTL(player.gender);
+            ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
+            List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
+            if (!baseOptions.isEmpty()) {
+                final int PERCENT_VARIATION = 30;
+                for (Item.ItemOption baseOption : baseOptions) {
+                    int originalParam = baseOption.param;
+                    double variation = originalParam * (Util.nextInt(-PERCENT_VARIATION, PERCENT_VARIATION) / 100.0);
+                    int newParam = originalParam + (int) Math.round(variation);
+                    if (newParam < 1) {
+                        newParam = 1;
+                    }
+                    it.options.add(new Item.ItemOption(baseOption.optionTemplate.id, newParam));
+                }
+            }
+            int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
+            it.options.add(new Item.ItemOption(opsrand[0], 0));
+            it.options.add(new Item.ItemOption(opsrand[1], 0));
+            it.options.add(new Item.ItemOption(30, 0)); //option ko thể giao dịch
+
+            ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
+
+            list.add(it);
+        }
+
 
         //Set kich hoat
         if (((player.isActive() && Util.isTrue(3, 1500)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(3, 1500)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
 
-            // --- LOGIC RANDOM CHỈ SỐ GỐC ---
+            // --- LOGIC RANDOM CHỈ SỐ GỐC CỦA TRANG BỊ - VD: ÁO THƯỜNG CÓ GIÁP = 15 THÌ SẼ RANDOM +/- X% ---
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
             if (!baseOptions.isEmpty()) {
                 // Tỉ lệ dao động, ví dụ: 20 nghĩa là chỉ số sẽ dao động từ -20% đến +20%
@@ -741,7 +846,7 @@ public class Mob {
             if (player.isPet) {
                 player = ((Pet) player).master;
             }
-            if (Util.isTrue(4, 100) || (player.isActive() && Util.isTrue(4, 100)) || (player.isAdmin() && Util.isTrue(4, 100))) {
+            if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200)) || (player.isAdmin() && Util.isTrue(1, 200))) {
                 ItemMap it = ItemService.gI().randDoTL(this.zone, 1, x, yEnd, player.id);
 
                 // "Lắp ráp" thêm các chỉ số kích hoạt vào đồ thần linh vừa tạo
@@ -768,16 +873,16 @@ public class Mob {
             list.add(it);
         }
         // tỉ lệ rơi thỏi vàng - set thấp thôi
-        if (Util.isTrue(1, 1300) || (player.isActive() && Util.isTrue(1, 1300))) {
+        if (Util.isTrue(1, 1500) || (player.isActive() && Util.isTrue(1, 1500))) {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
         //tỉ lệ rơi hồng ngọc
-        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
+        if (Util.isTrue(1, 300) || (player.isActive() && Util.isTrue(1, 300))) {
             int quantity = Util.nextInt(5, 15); // Random số lượng
             list.add(new ItemMap(zone,  861, quantity, x, yEnd, player.id));
         }
         //tỉ lệ rơi ngọc xanh
-        if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200))) {
+        if (Util.isTrue(1, 300) || (player.isActive() && Util.isTrue(1, 300))) {
             int quantity = Util.nextInt(5, 15);
             list.add(new ItemMap(zone, 77, quantity, x, yEnd, player.id));
         }
