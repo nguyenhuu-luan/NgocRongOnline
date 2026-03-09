@@ -424,7 +424,7 @@ public class UseItem {
                 Service.gI().sendThongBao(player, "Cần ít nhất " + (level - InventoryService.gI().getCountEmptyBag(player)) + " ô trống trong hành trang");
             } else {
                 player.itemsWoodChest.clear();
-                if (level == 0) {
+                 if (level == 0) {
                     InventoryService.gI().subQuantityItemsBag(player, ruongGo, 1);
                     InventoryService.gI().sendItemBags(player);
                     Item item = ItemService.gI().createNewItem((short) 673);
@@ -476,62 +476,73 @@ public class UseItem {
                     player.itemsWoodChest.add(level8);
                 }
                 if (level > 8) {
-                    Item level9 = ItemService.gI().createNewItem((short) 2055); // bi kiep tuyet ky
+                    Item level9 = ItemService.gI().createNewItem((short) Util.nextInt(1099, 1103)); //random item (cn,gx,bk,bh..cap2)
                     level9.quantity = Util.nextInt(15, level + 15);
                     player.itemsWoodChest.add(level9);
                 }
                 if (level > 9) {
-                    int[] itemId = {2025, 2026, 2036, 2037, 2038, 2039, 2040, 2019, 2020, 2021, 2022, 2023, 2024};
-                    byte[] option = {77, 80, 81, 103, 50, 94, 5};
-                    byte[] option_v2 = {14, 16, 17, 19, 27, 28, 5, 47, 87}; //77 %hp // 80 //81 //103 //50 //94 //5 % sdcm
+                    int[] itemId = {2025, 2026, 2036, 2037, 2038, 2039, 2040, 2019, 2020, 2021, 2022, 2023, 2024}; //random item theo id
+                    byte[] option = {77, 80, 81, 103, 50, 94, 5}; //random option v1
+                    /* 77 = HP+#%, 80 = HP+#%/30s, 81 = KI+#%/30s, 103 = KI +#%, 50 = Sức đánh+#%
+                       94 = Giáp #%, 5 = +#% sức đánh chí mạng
+                    * */
+                    byte[] option_v2 = {14, 16, 17, 19, 27, 28, 5, 47, 88}; //77 %hp // 80 //81 //103 //50 //94 //5 % sdcm
+                    /*14 = Chí mạng+#%, 16 = Tốc độ di chuyển+#%, 17 = Né đòn: +#, 19 = Tấn công+#% khi đánh quái
+                    * 27 = +# HP/30s, 28 = +# KI/30s, 47  = Giáp+#, 87 = Cộng #% exp khi đánh quái */
                     byte optionid;
                     byte optionid_v2;
                     byte param;
-                    Item level10 = ItemService.gI().createNewItem((short) itemId[Util.nextInt(0, 12)]);
-                    level10.itemOptions.clear();
-                    optionid = option[Util.nextInt(0, 6)];
-                    param = (byte) Util.nextInt(5, 10);
-                    level10.itemOptions.add(new Item.ItemOption(optionid, param));
-                    if (Util.isTrue(20, 100)) {
-                        optionid_v2 = option_v2[Util.nextInt(option_v2.length)];
+                    Item level10 = ItemService.gI().createNewItem((short) itemId[Util.nextInt(0, 12)]); // khoi tao và random 1 item trong mảng item trên
+                    level10.itemOptions.clear(); //clear option cũ cho đảm bảo item rỗng option
+                    optionid = option[Util.nextInt(0, option.length)]; //random option v1
+                    param = (byte) Util.nextInt(5, 10); //random param op1
+                    level10.itemOptions.add(new Item.ItemOption(optionid, param)); //add op1
+                    if (Util.isTrue(100, 100)) { //tỉ lệ 20%
+                        optionid_v2 = option_v2[Util.nextInt(option_v2.length)]; //add op
                         level10.itemOptions.add(new Item.ItemOption(optionid_v2, param));
                     }
-                    level10.itemOptions.add(new Item.ItemOption(30, 0));
+                    level10.itemOptions.add(new Item.ItemOption(30, 0)); //khong giao dich duoc
                     level10.itemOptions.add(new Item.ItemOption(93, Util.nextInt(level, 30)));
                     level10.quantity = 1;
                     player.itemsWoodChest.add(level10);
                 }
                 if (level > 10) {
+                    int[] itemId = {2025, 2026, 2036, 2037, 2038, 2039, 2040, 2019, 2020, 2021, 2022, 2023, 2024}; //random item theo id
                     byte[] option = {77, 80, 81, 103, 50, 94, 5};
-                    byte[] option_v2 = {14, 16, 17, 19, 27, 28, 5, 47, 87}; //77 %hp // 80 //81 //103 //50 //94 //5 % sdcm
+                    byte[] option_v2 = {14, 16, 17, 19, 27, 28, 5, 47, 88}; //77 %hp // 80 //81 //103 //50 //94 //5 % sdcm
                     byte optionid;
                     byte optionid_v2;
                     byte param;
-                    Item level11 = ItemService.gI().createNewItem((short) Util.nextInt(2112, 2118));
+                    //logic cũ /*Item level11 = ItemService.gI().createNewItem((short) Util.nextInt(2112, 2118));*/
+                    Item level11 = ItemService.gI().createNewItem((short) itemId[Util.nextInt(0, 12)]); // khoi tao và random 1 item trong mảng item trên
                     level11.itemOptions.clear();
-                    optionid = option[Util.nextInt(0, 6)];
+                    optionid = option[Util.nextInt(0, option.length)];
                     param = (byte) Util.nextInt(5, 10);
                     level11.itemOptions.add(new Item.ItemOption(optionid, param));
-                    if (Util.isTrue(20, 100)) {
+                    if (Util.isTrue(100, 100)) {
                         optionid_v2 = option_v2[Util.nextInt(option_v2.length)];
                         level11.itemOptions.add(new Item.ItemOption(optionid_v2, param));
                     }
                     level11.itemOptions.add(new Item.ItemOption(30, 0));
-                    if (Util.isTrue(90, 100)) {
+                    if (Util.isTrue(70, 100)) {
                         level11.itemOptions.add(new Item.ItemOption(93, Util.nextInt(level, 30)));
                     }
                     level11.quantity = 1;
                     player.itemsWoodChest.add(level11);
                 }
+
+                //TODO: logic goc nhung phai tim item khac va chinh sua lai cho phu hop
                 if (level > 11) {
+                    int[] itemId = {2025, 2026, 2036, 2037, 2038, 2039, 2040, 2019, 2020, 2021, 2022, 2023, 2024}; //random item theo id
                     byte[] option = {77, 80, 81, 103, 50, 94, 5};
                     byte[] option_v2 = {14, 16, 17, 19, 27, 28, 5, 47, 87}; //77 %hp // 80 //81 //103 //50 //94 //5 % sdcm
                     byte optionid;
                     byte optionid_v2;
                     byte param;
-                    Item level12 = ItemService.gI().createNewItem((short) Util.nextInt(2108, 2122));
+                    /*Item level12 = ItemService.gI().createNewItem((short) Util.nextInt(2108, 2122)); */ //logic cũ
+                    Item level12 = ItemService.gI().createNewItem((short) itemId[Util.nextInt(0, 12)]); // khoi tao và random 1 item trong mảng item trên
                     level12.itemOptions.clear();
-                    optionid = option[Util.nextInt(0, 6)];
+                    optionid = option[Util.nextInt(0, option.length)];
                     param = (byte) Util.nextInt(5, 10);
                     level12.itemOptions.add(new Item.ItemOption(optionid, param));
                     if (Util.isTrue(20, 100)) {
