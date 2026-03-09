@@ -4,6 +4,17 @@
 - Them option skh doi voi cac trang bi cao -> cang` cao -> ti le cang` thap'
 - Tim` hieu cach trang bi thien su
 #Event
+#OPEN ruong gỗ
+- Cập nht lại quà:
+1- Cập nhật lại số lượng thỏi vang nhan duoc
+2- Update cho them 1 số vật phẩm đeo lung, van bay hoặc pet
+3- Xóa bớt ngọc rồng và cho random them item bk,bh,cn,gx cap 2
+4-Tạo them option 3 4 5 cho cac loại pet, vp deo lung
+-> Tạo thêm logic cho ruong level cang cao thì param option cua item cang vip (ví dụ
+cùng 1 pet nhưng rương level 9 sẽ có pram option cui` hon còn rương lv11 sẽ cao hơn)
+5- Thêm 1 số cải trang (tận dụng tối đa 12 level của rương)
+6- Đối với ván bay thì chỉ cho phép tối đa 3 option thôi
+
 #Nhiệm vụ
  - Cập nhật lại
 #Dungeon
@@ -16,7 +27,8 @@
     -
 #Boss
     - Chỉnh lại reward boss, cho phép boss có tỉ lệ hiếm rơi hop skh tl tuy chon, nr
+    - Thêm rương vàng, rương bạc vào các boss vip
+    - Thêm capsunle vàng, bạc vào các boss trong bdkb
 
-
-#datapoint
-0, sm, tn,
+#Đệ tử
+    - Update đệ mới, vd: pic -> cho phép đánh boss rơi trứng đệ đó set tỉ lệ thấp thôi

@@ -415,7 +415,7 @@ public class UseItem {
             }
         }
     }
-
+    // TODO: Cap nhat lai qua` - chi tiet xem trong file note-features
     public void openRuongGo(Player player) {
         Item ruongGo = InventoryService.gI().findItemBag(player, 570);
         if (ruongGo != null) {
