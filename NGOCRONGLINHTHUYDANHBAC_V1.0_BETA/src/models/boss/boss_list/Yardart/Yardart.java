@@ -89,8 +89,8 @@ public abstract class Yardart extends Boss {
 
     @Override
     public void reward(Player plKill) {
-        if (Util.isTrue(1, rewardRatio)) {
-            ItemMap it = new ItemMap(zone, 590, 1, plKill.location.x + (Util.nextInt(-10, 10)), plKill.location.y, plKill.id);
+        if (Util.isTrue(10, rewardRatio)) {
+            ItemMap it = new ItemMap(zone, 590, 5, plKill.location.x + (Util.nextInt(-10, 10)), plKill.location.y, plKill.id);
             it.options.clear();
             it.options.add(new Item.ItemOption(31, 1));
             Service.gI().dropItemMap(this.zone, it);

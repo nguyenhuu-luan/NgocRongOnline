@@ -663,7 +663,7 @@ public class Mob {
             }
         }
         // random item map 1
-        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapG1(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 200)) || (Manager.TEST && Util.isTrue(2, 200)) || Util.isTrue(2, 200)) && MapService.gI().isMapG1(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemMap1(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -689,7 +689,7 @@ public class Mob {
             list.add(it);
         }
         // random item map 2
-        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapG2(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 250)) || (Manager.TEST && Util.isTrue(2, 250)) || Util.isTrue(2, 250)) && MapService.gI().isMapG2(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemMap2(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -715,7 +715,7 @@ public class Mob {
             list.add(it);
         }
         // random item map nappa
-        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapNappa(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 300)) || (Manager.TEST && Util.isTrue(2, 300)) || Util.isTrue(2, 300)) && MapService.gI().isMapNappa(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemNappa(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -741,7 +741,7 @@ public class Mob {
             list.add(it);
         }
         // random item map TL
-        if (((player.isActive() && Util.isTrue(50, 100)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(50, 100)) && MapService.gI().isMapTuongLai(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 400)) || (Manager.TEST && Util.isTrue(2, 400)) || Util.isTrue(2, 400)) && MapService.gI().isMapTuongLai(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemTL(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -769,7 +769,7 @@ public class Mob {
 
 
         //Set kich hoat
-        if (((player.isActive() && Util.isTrue(3, 1500)) || (Manager.TEST && Util.isTrue(3, 1500)) || Util.isTrue(3, 1500)) && MapService.gI().isMapUpSKH(mapid)) {
+        if (((player.isActive() && Util.isTrue(3, 500)) || (Manager.TEST && Util.isTrue(3, 500)) || Util.isTrue(3, 500)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
 
@@ -813,7 +813,7 @@ public class Mob {
         }
 
         //Sao pha le
-        if (Util.isTrue(1, 500) || (player.nPoint.isDoSPL && Util.isTrue(1, 200)) || (player.isActive() && Util.isTrue(1, 500))) {
+        if (Util.isTrue(3, 100) || (player.nPoint.isDoSPL && Util.isTrue(7, 100)) || (player.isActive() && Util.isTrue(3, 100))) {
             int rand = Util.nextInt(0, 6);
             ItemMap it = new ItemMap(zone, 441 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(95 + rand, (rand == 3 || rand == 4) ? 3 : 5));
@@ -821,7 +821,7 @@ public class Mob {
         }
        //Ngọc rồng
         // Rơi Ngọc Rồng (ID 14 -> 20)
-        if (Util.isTrue(1, 250) || (player.isActive() && Util.isTrue(1, 250))) {
+        if (Util.isTrue(1, 150) || (player.isActive() && Util.isTrue(1, 150))) {
 
             // Format gọn nhất (nhưng tỉ lệ sẽ ĐỀU NHAU cho các viên):
             int rand = Util.nextInt(0, 3);
@@ -873,27 +873,27 @@ public class Mob {
             list.add(it);
         }
         // tỉ lệ rơi thỏi vàng - set thấp thôi
-        if (Util.isTrue(1, 1500) || (player.isActive() && Util.isTrue(1, 1500))) {
+        if (Util.isTrue(1, 900) || (player.isActive() && Util.isTrue(1, 900))) {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
         //tỉ lệ rơi hồng ngọc
-        if (Util.isTrue(1, 300) || (player.isActive() && Util.isTrue(1, 300))) {
+        if (Util.isTrue(1, 100) || (player.isActive() && Util.isTrue(1, 100))) {
             int quantity = Util.nextInt(5, 15); // Random số lượng
             list.add(new ItemMap(zone,  861, quantity, x, yEnd, player.id));
         }
         //tỉ lệ rơi ngọc xanh
-        if (Util.isTrue(1, 300) || (player.isActive() && Util.isTrue(1, 300))) {
+        if (Util.isTrue(6, 100) || (player.isActive() && Util.isTrue(6, 100))) {
             int quantity = Util.nextInt(5, 15);
             list.add(new ItemMap(zone, 77, quantity, x, yEnd, player.id));
         }
         // Manh thien su
-        if ((Util.isTrue(1, 3000) || (player.isActive() && Util.isTrue(1, 3000))) && MapService.gI().isMapHanhTinhThucVat(mapid) && InventoryService.gI().findItemNTK(player)) {
+        if ((Util.isTrue(1, 300) || (player.isActive() && Util.isTrue(1, 300))) && MapService.gI().isMapHanhTinhThucVat(mapid) && InventoryService.gI().findItemNTK(player)) { //check player co nhan thoi khong chua
             list.add(new ItemMap(zone, Util.nextInt(1066, 1070), 1, x, yEnd, player.id));
         }
         if (Util.isTrue(1, 2000) || (player.isActive() && Util.isTrue(1, 2000))) {
             list.add(new ItemMap(zone, 861, 1, x, yEnd, player.id));
         }
-        if (player.nPoint.power >= 80000000000L) {
+       /* if (player.nPoint.power >= 80000000000L) {
             if (player.zone.map.mapId == 155) {
                 list.add(new ItemMap(zone, 2055, 1, x, yEnd, player.id));
             } else {
@@ -904,7 +904,14 @@ public class Mob {
                     list.add(new ItemMap(zone, 2052, 1, x, yEnd, player.id));
                 }
             }
-        }
+        } */ //if ht nguc tu + player >= 80ti sm roi 3 item 2055,2051,2051 nhung chua co item id trong csdl nen tam thoi bo qua
+
+        //roi manh thien su map nguc tu
+        if ((Util.isTrue(50, 100) && (player.nPoint.power >= 80000000000L) && (player.zone.map.mapId == 155) || (player.zone.map.mapId == 165) || (player.zone.map.mapId == 167))) {
+                list.add(new ItemMap(zone, Util.nextInt(1066, 1070), 5, x, yEnd, player.id));
+            }
+
+        //TODO: Cai tien logic cho phep map nguc tu 1 -> tỉ lệ thấp, ngục tù 2 3 tăng dần tỉ lệ nhưng quái mạnh hơn
         return list;
     }
 

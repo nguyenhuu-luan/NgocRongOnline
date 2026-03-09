@@ -207,7 +207,7 @@ public class BossManager implements Runnable {
                     new SO1();
                 case BossID.TIEU_DOI_TRUONG ->
                     new TDT();
-                case BossID.SO_4_NM ->
+             /*   case BossID.SO_4_NM ->
                     new SO4_NM();
                 case BossID.SO_3_NM ->
                     new SO3_NM();
@@ -217,7 +217,7 @@ public class BossManager implements Runnable {
                     new SO1_NM();
                 case BossID.TIEU_DOI_TRUONG_NM ->
                     new TDT_NM();
-              /*  case BossID.BUJIN ->
+                case BossID.BUJIN ->
                     new BUJIN();
                 case BossID.KOGU ->
                     new KOGU();
