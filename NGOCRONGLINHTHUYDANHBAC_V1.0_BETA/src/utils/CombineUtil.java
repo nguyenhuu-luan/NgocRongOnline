@@ -104,31 +104,31 @@ public class CombineUtil {
     public static int getGoldPhaLeHoa(int star) {
         switch (star) {
             case 0:
-                return 5000000;
+                return 500000;
             case 1:
-                return 10000000;
+                return 1000000;
             case 2:
-                return 20000000;
+                return 1500000; //1tr5
             case 3:
-                return 30000000;
+                return 2500000;
             case 4:
-                return 40000000;
+                return 5000000;
             case 5:
-                return 50000000;
+                return 7000000;
             case 6:
-                return 60000000;
+                return 10000000;
             case 7:
-                return 70000000;
+                return 17000000;
             case 8:
-                return 80000000;
+                return 22000000;
             case 9:
-                return 90000000;
+                return 35000000;
             case 10:
-                return 100000000;
+                return 450000000;
             case 11:
-                return 110000000;
+                return 600000000;
             case 12:
-                return 120000000;
+                return 80000000;
         }
         return 0;
     }
@@ -166,35 +166,35 @@ public class CombineUtil {
 
         return 0;
     }
-
+    // ngoc xanh pha le hoa'
     public static int getGemPhaLeHoa(int star) {
         switch (star) {
             case 0:
-                return 5;
+                return 1;
             case 1:
-                return 10;
+                return 2;
             case 2:
-                return 20;
+                return 4;
             case 3:
-                return 30;
+                return 6;
             case 4:
-                return 40;
+                return 8;
             case 5:
-                return 50;
+                return 10;
             case 6:
-                return 60;
+                return 12;
             case 7:
-                return 70;
+                return 14;
             case 8:
-                return 140;
+                return 16;
             case 9:
-                return 280;
+                return 18;
             case 10:
-                return 560;
+                return 20;
             case 11:
-                return 1120;
+                return 22;
             case 12:
-                return 2240;
+                return 24;
         }
         return 0;
     }
@@ -220,21 +220,21 @@ public class CombineUtil {
     public static int getCountDaNangCapDo(int level) {
         switch (level) {
             case 0:
-                return 3;
+                return 2;
             case 1:
-                return 7;
+                return 4;
             case 2:
-                return 11;
+                return 6;
             case 3:
-                return 17;
+                return 8;
             case 4:
-                return 23;
+                return 10;
             case 5:
-                return 35;
+                return 14;
             case 6:
-                return 50;
+                return 18;
             case 7:
-                return 70;
+                return 20;
         }
         return 0;
     }

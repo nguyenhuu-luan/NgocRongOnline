@@ -1,0 +1,9 @@
+Folder này lưu mọi thứ đang muốn add thử vào server (img, icon,...)
+Tree: 
+	Z_Test
+	----Imgs 
+		--img01
+		--img02
+	----Folder02
+		--file01
+		--file02

@@ -1,0 +1,3 @@
+Folder này dùng để lưu các tính năng đang phát triển
+- Đặt tên dựa theo item, tính năng (vd: random capsule event ABC, random pet, lucky wheel update,...)
+- 

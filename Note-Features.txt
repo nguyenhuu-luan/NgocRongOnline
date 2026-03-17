@@ -1,8 +1,8 @@
 #Drop item
-- Thêm trang bị rơi tăng dần theo map (ví dụ map 1 2 3 -> rơi random tb vai tho den giap sat,...)
-- Thêm logic random chi so vao toan bo trang bi roi tu mob
-- Them option skh doi voi cac trang bi cao -> cang` cao -> ti le cang` thap'
-- Tim` hieu cach trang bi thien su
+- Thêm trang bị rơi tăng dần theo map (ví dụ map 1 2 3 -> rơi random tb vai tho den giap sat,...) -done
+- Thêm logic random chi so vao toan bo trang bi roi tu mob -done
+- Them option skh doi voi cac trang bi cao -> cang` cao -> ti le cang` thap' -done
+- Tim` hieu cach trang bi thien su 
 #Event
 #OPEN ruong gỗ
 - Cập nht lại quà:
@@ -26,9 +26,20 @@ cùng 1 pet nhưng rương level 9 sẽ có pram option cui` hon còn rương lv
 #Cân bằng
     -
 #Boss
+    - Cân bằng hp, dame của boss cho phù hợp với sv dame gốc (giờ nó mạnh vl pem đéo lại :((	
     - Chỉnh lại reward boss, cho phép boss có tỉ lệ hiếm rơi hop skh tl tuy chon, nr
     - Thêm rương vàng, rương bạc vào các boss vip
     - Thêm capsunle vàng, bạc vào các boss trong bdkb
+    
+
+	1. Blackgoku - bgk rose: Chưa có reward -> rơi áo, giày tl, 3s,  (black)-nhẫn, găng, quần tl, nhẫn thời không (rose) 
+	2. Fide gold: Chưa có reward -> cải trang fide gold (random chỉ số)
+	3. ppkk: Chưa có -> cskb câp 2, 3s, 4s, thỏi vàng
+	4. adroid 13-20: chưa có
+	5. Xên 123: Add tỉ lệ drop 2s (set thấp)
+	6. Siêu xên + xên con: Add tỉ lệ drop 2s và đồ tl kích hoạt chỉ số cao hơn up 
+	7. Cooler: chưa có
+	
 
 #Đệ tử
     - Update đệ mới, vd: pic -> cho phép đánh boss rơi trứng đệ đó set tỉ lệ thấp thôi

@@ -663,7 +663,7 @@ public class Mob {
             }
         }
         // random item map 1
-        if (((player.isActive() && Util.isTrue(2, 200)) || (Manager.TEST && Util.isTrue(2, 200)) || Util.isTrue(2, 200)) && MapService.gI().isMapG1(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 450)) || (Manager.TEST && Util.isTrue(2, 450)) || Util.isTrue(2, 450)) && MapService.gI().isMapG1(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemMap1(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -689,7 +689,7 @@ public class Mob {
             list.add(it);
         }
         // random item map 2
-        if (((player.isActive() && Util.isTrue(2, 250)) || (Manager.TEST && Util.isTrue(2, 250)) || Util.isTrue(2, 250)) && MapService.gI().isMapG2(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 500)) || (Manager.TEST && Util.isTrue(2, 500)) || Util.isTrue(2, 500)) && MapService.gI().isMapG2(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemMap2(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -715,7 +715,7 @@ public class Mob {
             list.add(it);
         }
         // random item map nappa
-        if (((player.isActive() && Util.isTrue(2, 300)) || (Manager.TEST && Util.isTrue(2, 300)) || Util.isTrue(2, 300)) && MapService.gI().isMapNappa(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 550)) || (Manager.TEST && Util.isTrue(2, 550)) || Util.isTrue(2, 550)) && MapService.gI().isMapNappa(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemNappa(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -741,7 +741,7 @@ public class Mob {
             list.add(it);
         }
         // random item map TL
-        if (((player.isActive() && Util.isTrue(2, 400)) || (Manager.TEST && Util.isTrue(2, 400)) || Util.isTrue(2, 400)) && MapService.gI().isMapTuongLai(mapid)) {
+        if (((player.isActive() && Util.isTrue(2, 600)) || (Manager.TEST && Util.isTrue(2, 600)) || Util.isTrue(2, 600)) && MapService.gI().isMapTuongLai(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemTL(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
             List<Item.ItemOption> baseOptions = ItemService.gI().getListOptionItemShop(itTemp);
@@ -768,8 +768,8 @@ public class Mob {
         }
 
 
-        //Set kich hoat
-        if (((player.isActive() && Util.isTrue(3, 500)) || (Manager.TEST && Util.isTrue(3, 500)) || Util.isTrue(3, 500)) && MapService.gI().isMapUpSKH(mapid)) {
+        //Set kich hoat cac món thường nhưng đã bị hàm trên ovw
+       /* if (((player.isActive() && Util.isTrue(3, 500)) || (Manager.TEST && Util.isTrue(3, 500)) || Util.isTrue(3, 500)) && MapService.gI().isMapUpSKH(mapid)) {
             short itTemp = (short) ItemService.gI().randTempItemKichHoat(player.gender);
             ItemMap it = new ItemMap(zone, itTemp, 1, x, yEnd, player.id);
 
@@ -800,7 +800,7 @@ public class Mob {
 
            if (!ops.isEmpty()) {
                 it.options = ops;
-            } */ //logic gán chỉ số gốc = chỉ số item trong shop
+            }  //logic gán chỉ số gốc = chỉ số item trong shop
 
             int[] opsrand = ItemService.gI().randOptionItemKichHoat(player.gender);
             it.options.add(new Item.ItemOption(opsrand[0], 0));
@@ -810,10 +810,10 @@ public class Mob {
             ItemService.gI().tryAddItemSpecialOption(it); // Thử thêm sao pha lê
 
             list.add(it);
-        }
+        } */
 
         //Sao pha le
-        if (Util.isTrue(3, 100) || (player.nPoint.isDoSPL && Util.isTrue(7, 100)) || (player.isActive() && Util.isTrue(3, 100))) {
+        if (Util.isTrue(1, 100) || (player.nPoint.isDoSPL && Util.isTrue(3, 100)) || (player.isActive() && Util.isTrue(1, 100))) {
             int rand = Util.nextInt(0, 6);
             ItemMap it = new ItemMap(zone, 441 + rand, 1, x, yEnd, player.id);
             it.options.add(new Item.ItemOption(95 + rand, (rand == 3 || rand == 4) ? 3 : 5));
@@ -821,7 +821,7 @@ public class Mob {
         }
        //Ngọc rồng
         // Rơi Ngọc Rồng (ID 14 -> 20)
-        if (Util.isTrue(1, 150) || (player.isActive() && Util.isTrue(1, 150))) {
+        if (Util.isTrue(5, 150) || (player.isActive() && Util.isTrue(5, 150))) {
 
             // Format gọn nhất (nhưng tỉ lệ sẽ ĐỀU NHAU cho các viên):
             int rand = Util.nextInt(0, 3);
@@ -846,7 +846,7 @@ public class Mob {
             if (player.isPet) {
                 player = ((Pet) player).master;
             }
-            if (Util.isTrue(1, 200) || (player.isActive() && Util.isTrue(1, 200)) || (player.isAdmin() && Util.isTrue(1, 200))) {
+            if (Util.isTrue(1, 750) || (player.isActive() && Util.isTrue(1, 750)) || (player.isAdmin() && Util.isTrue(1, 750))) {
                 ItemMap it = ItemService.gI().randDoTL(this.zone, 1, x, yEnd, player.id);
 
                 // "Lắp ráp" thêm các chỉ số kích hoạt vào đồ thần linh vừa tạo
@@ -873,7 +873,7 @@ public class Mob {
             list.add(it);
         }
         // tỉ lệ rơi thỏi vàng - set thấp thôi
-        if (Util.isTrue(1, 900) || (player.isActive() && Util.isTrue(1, 900))) {
+        if (Util.isTrue(1, 600) || (player.isActive() && Util.isTrue(1, 600))) {
             list.add(new ItemMap(zone, 457, 1, x, yEnd, player.id));
         }
         //tỉ lệ rơi hồng ngọc

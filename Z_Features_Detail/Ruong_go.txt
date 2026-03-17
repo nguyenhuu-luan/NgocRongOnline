@@ -1,0 +1,26 @@
+- Cập nht lại quà:
+1- Cập nhật lại số lượng thỏi vang nhan duoc
+2- Update cho them 1 số vật phẩm đeo lung, van bay hoặc pet
+3- Xóa bớt ngọc rồng và cho random them item bk,bh,cn,gx cap 2
+4-Tạo them option 3 4 5 cho cac loại pet, vp deo lung
+-> Tạo thêm logic cho ruong level cang cao thì param option cua item cang vip (ví dụ
+cùng 1 pet nhưng rương level 9 sẽ có pram option cui` hon còn rương lv11 sẽ cao hơn)
+5- Thêm 1 số cải trang (tận dụng tối đa 12 level của rương)
+6- Đối với ván bay thì chỉ cho phép tối đa 3 option thôi
+
+
+####-------------------CHI TIẾT-------------------###
+@P/S: Số thứ tự đại diện cho lv của rương
+1- Cập nhật lại số lượng thỏi vàng -> Random từ 5~10 thỏi vàng
+2- Random NR 3~1s (Logic 3s x10~20, 2s x2~4, 1s x1 tỉ lệ hiếm)
+3- CSKB thường hoặc CSKB cấp 2 (update cskb c2 trong code)
+4-
+5-
+6-
+7-
+8-
+9-
+10-
+11-
+12- 
+
